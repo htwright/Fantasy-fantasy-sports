@@ -21,6 +21,7 @@ export default class Sport extends Component {
         {/*<select>
           <option value="team">Pick a team</option>
         </select>*/}
+
       </div>
     );
   }
