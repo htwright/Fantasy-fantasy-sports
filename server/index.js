@@ -49,6 +49,13 @@ app.put('/api/teams', (req, res) => {
 
 });
 
+app.delete('/api/teams', (req, res) => {
+  Team
+    .findByIdAndRemove(req.body.id)
+    .then(() => res.status(204).end())
+    .catch(err => console.error(err)); 
+});
+
 // app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Unhandled requests which aren't for the API should serve index.html so
