@@ -32,6 +32,23 @@ app.post('/api/teams', (req, res) => {
     .catch(err => console.error(err));
 });
 
+app.put('/api/teams', (req, res) => {
+  const toUpdate = {};
+  const updateableFields = ['owner', 'memberIds'];
+
+  updateableFields.forEach(field => {
+    if (field in req.body) {
+      toUpdate[field] = req.body[field];
+    }
+  });
+
+  Team
+    .findByIdAndUpdate(req.body.id, {$set: toUpdate})
+    .then(result => res.status(204).end())
+    .catch(err=>console.error(err));
+
+});
+
 // app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Unhandled requests which aren't for the API should serve index.html so
