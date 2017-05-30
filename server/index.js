@@ -1,33 +1,34 @@
 const path = require('path');
 const express = require('express');
-const databaseUrl = require('./config');
+const {DATABASE_URL} = require('./config');
 const mongoose = require('mongoose');
 const app = express();
-const Team = require('./models');
+const {Team} = require('./models');
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
+app.use(bodyParser.json());
 
 
-app.get('/api', (req, res) => {
+app.get('/api/teams', (req, res) => {
   Team
     .find()
-    .then(result => res.json(result))
+    .then(result => res.status(200).json(result))
     .catch(err => console.error(err));
 });
 
-app.post('/teams', (req, res) => {
+app.post('/api/teams', (req, res) => {
+  console.log(req.body);
   Team
     .create({
-      owner: req.params.owner,
-      team: req.params.team
+      owner: req.body.owner,
+      memberIds: req.body.memberIds
     })
-    .then(()=> console.log('created!'))
+    .then((result)=> res.status(201).json(result))
     .catch(err => console.error(err));
 });
 
@@ -43,7 +44,7 @@ app.post('/teams', (req, res) => {
 let server;
 function runServer(port=3001) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, err => {
+    mongoose.connect(DATABASE_URL, err => {
       if (err) {
         return reject(err);
       }
