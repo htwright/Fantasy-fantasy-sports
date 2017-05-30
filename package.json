@@ -23,12 +23,7 @@
   "dependencies": {
     "cross-env": "^3.1.4",
     "express": "^4.14.1",
-<<<<<<< HEAD
-    "fetch": "^1.1.0",
-    "http-proxy-middleware": "^0.17.3",
-=======
     "http-proxy-middleware": "^0.17.4",
->>>>>>> 19d411ba706e818fb7b3fd52efdef58c36007031
     "npm-run-all": "^4.0.1",
     "redux-thunk": "^2.2.0",
     "xp": "^1.0.1"

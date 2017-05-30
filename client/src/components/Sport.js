@@ -11,7 +11,7 @@ export default class Sport extends Component {
     return(
       <div>
         <select name="sports">
-          <option selected hidden>Pick a sport</option>
+          <option value hidden>Pick a sport</option>
           <option value="basketball">Basketball</option>
           <option value="hockey">Hockey</option>
           <option value="baseball">Baseball</option>
