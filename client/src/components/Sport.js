@@ -10,17 +10,17 @@ export default class Sport extends Component {
   render() {
     return(
       <div>
-        <select name="Sport">
-          <option value="main">Pick a sport</option>
+        <select name="sports">
+          <option selected hidden>Pick a sport</option>
           <option value="basketball">Basketball</option>
           <option value="hockey">Hockey</option>
           <option value="baseball">Baseball</option>
           <option value="football">Football</option>
         </select>
 
-        <select>
+        {/*<select>
           <option value="team">Pick a team</option>
-        </select>
+        </select>*/}
       </div>
     );
   }
