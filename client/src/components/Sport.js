@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class Sport extends Component {
+class Sport extends Component {
   constructor(props) {
     super(props);
 
@@ -17,13 +17,14 @@ export default class Sport extends Component {
           <option value="baseball">Baseball</option>
           <option value="football">Football</option>
         </select>
-
+        <span> </span>
         <select>
           <option value hidden>Pick a team</option>
           <option value="team">Golden State Warriors</option>
         </select>
-
       </div>
     );
   }
 }
+
+export default Sport;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Router from 'react-router';
+//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Sport from './components/Sport';
 // import logo from './logo.svg';
@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+
         <div className="App">
           <Sport />
             {/*
@@ -28,7 +28,7 @@ class App extends Component {
         <TeamName />
         <PlayerList />
       </div>
-      </Router>
+
     );
   }
 }
