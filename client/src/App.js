@@ -5,6 +5,7 @@ import Sport from './components/Sport';
 import './App.css';
 import { fetchPlayers } from '../src/actions';
 import TeamName from './components/Team-Name';
+import PlayerList from './components/Player-List';
 
 class App extends Component {
 
@@ -16,11 +17,12 @@ class App extends Component {
     return (
       <div className="App">
         <Sport />
-        <div className="App-header">
+        {/*<div className="App-header">
           <h2>Welcome to Fantasy Fantasy Sports!</h2>
         </div>
-        <p className="App-intro">It's not sports, it's not fantasy sports...</p>
+        <p className="App-intro">It's not sports, it's not fantasy sports...</p>*/}
         <TeamName />
+        <PlayerList />
       </div>
     );
   }

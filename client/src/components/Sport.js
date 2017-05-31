@@ -18,9 +18,10 @@ export default class Sport extends Component {
           <option value="football">Football</option>
         </select>
 
-        {/*<select>
-          <option value="team">Pick a team</option>
-        </select>*/}
+        <select>
+          <option value hidden>Pick a team</option>
+          <option value="team">Golden State Warriors</option>
+        </select>
 
       </div>
     );
