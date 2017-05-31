@@ -12,8 +12,8 @@ const requestPlayers = () => ({
   type: REQUEST_PLAYERS
 })
 //USED for validation
-const username = 'baamosk';
-const password = 'Jajuka888';
+const username = '$';
+const password = '$';
 const auth = btoa(username + ':' + password);
 const Authorization = {headers: { Authorization: `Basic ${auth}` }};
 
