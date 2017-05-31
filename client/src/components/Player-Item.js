@@ -2,39 +2,32 @@ import React from 'react';
 //import { connect } from 'react-redux';
 
 const PlayerItem = (props) => {
-
+  let player = props.player;
   return (
     <div>
       <table>
         <tr>
           <th>Player Name</th><th></th>
-          <th>Points</th>
-          <th>Rebounds</th>
-          <th>Assists</th>
-          <th>Steals</th>
-          <th>Turnovers</th>
+          <th>Points/Game</th>
+          <th>Rebounds/Game</th>
+          <th>Assists/Game</th>
+          <th>Steals/Game</th>
+          <th>Turnovers/Game</th>
         </tr>
         <tr>
           {/*Render data into here*/}
-          <td name={props.player}>{props.player.player.FirstName}</td><th></th>
-          <td name={props.player}>{props.player.stats.Fg2PtMade['#text']}</td>
-          <td>6</td>
-          <td>9</td>
-          <td>2</td>
-          <td>1</td>
+          <td name={player.player.FirstName + 'name'}>{player.player.FirstName} {props.player.player.LastName}</td><th></th>
+          <td name={player.player.FirstName + 'points-per-game'}>{player.stats.PtsPerGame['#text']}</td>
+          <td name={player.player.FirstName + 'rebounds'}>{player.stats.RebPerGame['#text']}</td>
+          <td name={player.player.FirstName + 'assists'}>{player.stats.AstPerGame['#text']}</td>
+          <td name={player.player.FirstName + 'steals'}>{player.stats.StlPerGame['#text']}</td>
+          <td name={player.player.FirstName + 'turnovers'}>{player.stats.TovPerGame['#text']}</td>
         </tr>
-        <tr>
-          <td>Draymond Green</td><th></th>
-          <td>12</td>
-          <td>10</td>
-          <td>9</td>
-          <td>6</td>
-          <td>3</td>
-        </tr>
+        <button type="button">Add {player.player.FirstName + ' ' + player.player.LastName} to team!</button>
       </table>
     </div>
   );
-}
+};
 
 
-export default PlayerItem
+export default PlayerItem;

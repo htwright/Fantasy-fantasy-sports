@@ -12,15 +12,17 @@ class Header extends Component {
 
   dispatchFetch(e) {
     // e.preventDefault();
-    var selectVal = this.selectInput.value;
-    console.log(selectVal);
-    this.props.dispatch(fetchPlayers(selectVal));
+      // var val = this.selectInput.value;
+      var val = this.nameInput.value;
+    // var selectVal = this.selectInput.value;
+    // console.log(selectVal);
+    this.props.dispatch(fetchPlayers(val));
   }
 
   render() {
     return(
       <div>
-      <form id="search-form" onSubmit={e =>{e.preventDefault();console.log(e.target.value); this.dispatchFetch(this.input)}}>
+      <form id="search-form" onSubmit={e =>{e.preventDefault();console.log(e.target.value); this.dispatchFetch()}}>
         <select name="sports">
           {/*<option value hidden>Pick a sport</option>*/}
           <option>Basketball</option>
@@ -29,7 +31,8 @@ class Header extends Component {
           <option value="football">Football</option>*/}
         </select>
         <span> </span>
-        <select name="hello" ref ={(input) => this.selectInput = input}>
+        <input type="text" ref={(input) => this.nameInput = input} id="name-search" placeholder="Enter a player's last name!"/>
+        {/*<select name="hello" ref ={(input) => this.selectInput = input}>
           <option value hidden>Pick a team</option>
           <option value="ATL">Atlanta Hawks</option>
           <option value="BKN">Brooklyn Nets</option>
@@ -61,7 +64,7 @@ class Header extends Component {
           <option value="TOR">Toronto Raptors</option>
           <option value="UTA">Utah Jazz</option>
           <option value="WAS">Washington Wizards</option>
-        </select>
+        </select>*/}
         <button type="submit">Search</button>
         </form>
       </div>
