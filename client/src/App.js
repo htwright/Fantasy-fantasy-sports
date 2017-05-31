@@ -11,13 +11,12 @@ import store from './store';
 class App extends Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchPlayers())
+    this.props.dispatch(fetchPlayers());
   }
 
   render() {
     return (
       <Provider store={store}>
-        <Router>
           <div className="App">
             <Header />
             <PlayerList />
@@ -25,7 +24,6 @@ class App extends Component {
             <Route exact path="/" component={PlayerList}/>
             <Route exact path="/teams" component={TeamName}/>*/}
           </div>
-        </Router>
       </Provider>
     );
   }
