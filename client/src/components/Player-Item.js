@@ -1,7 +1,8 @@
 import React from 'react';
 //import { connect } from 'react-redux';
 
-const PlayerItem = () => {
+const PlayerItem = (props) => {
+
   return (
     <div>
       <table>
@@ -15,8 +16,8 @@ const PlayerItem = () => {
         </tr>
         <tr>
           {/*Render data into here*/}
-          <td>Kevin Durant</td><th></th>
-          <td>45</td>
+          <td name={props.player}>{props.player.player.FirstName}</td><th></th>
+          <td name={props.player}>{props.player.stats.Fg2PtMade['#text']}</td>
           <td>6</td>
           <td>9</td>
           <td>2</td>

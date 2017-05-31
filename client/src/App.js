@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import Header from './components/Header';
 import './App.css';
 import { fetchPlayers } from '../src/actions';
 import TeamName from './components/Team-Name';
 import PlayerList from './components/Player-List';
+import store from './store';
 
 class App extends Component {
 
@@ -15,13 +16,17 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Route exact path="/" component={Header} />
-          <Route exact path="/teams" component={TeamName}/>
-          <Route exact path="/teams/players" component={Header, PlayerList}/>
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Header />
+            <PlayerList />
+            {/*<Route exact path="/players" component={Header} />
+            <Route exact path="/" component={PlayerList}/>
+            <Route exact path="/teams" component={TeamName}/>*/}
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }

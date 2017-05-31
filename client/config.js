@@ -1,1 +1,0 @@
-exports.PW = process.env.PW;

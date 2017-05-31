@@ -10,7 +10,7 @@ const players = (state = initialState, action) => {
         ...state,
         loading: true
       }
-    case 'RECEIVE_PLAYERS':
+    case 'RECIEVE_PLAYERS':
       return {
         ...state,
         data: action.data,

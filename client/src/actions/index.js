@@ -1,4 +1,3 @@
-import { PW } from '../../config';
 // require('dotenv').config();
 
 const RECIEVE_PLAYERS = 'RECIEVE_PLAYERS';
@@ -12,10 +11,10 @@ const requestPlayers = () => ({
   type: REQUEST_PLAYERS
 })
 //USED for validation
+const USERNAME = 'baamosk';
+const PASSWORD = 'Jajuka888'
+const auth = btoa(USERNAME + ':' + PASSWORD);
 
-const auth = btoa(process.env.REACT_APP_USERNAME + ':' + process.env.REACT_APP_PASSWORD);
-console.log('This is process', process.env.REACT_APP_USERNAME);
-//console.log(`This is the auth`, auth);
 const Authorization = {headers: { Authorization: `Basic ${auth}` }};
 
 const players = 'stephen-curry';
@@ -31,8 +30,8 @@ export const fetchPlayers = (search) => {
     //second arg in fetch can be opts
     fetch(URL, Authorization)
     .then(response => response.json())
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    .then(res => dispatch(recievePlayers(res.cumulativeplayerstats.playerstatsentry)))
+    .catch(err => console.error(err))
   }
 }
 
