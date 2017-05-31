@@ -12,9 +12,10 @@ const requestPlayers = () => ({
   type: REQUEST_PLAYERS
 })
 //USED for validation
-const username = '$';
-const password = '$';
-const auth = btoa(username + ':' + password);
+
+const auth = btoa(process.env.REACT_APP_USERNAME + ':' + process.env.REACT_APP_PASSWORD);
+console.log('This is process', process.env.REACT_APP_USERNAME);
+//console.log(`This is the auth`, auth);
 const Authorization = {headers: { Authorization: `Basic ${auth}` }};
 
 const players = 'stephen-curry';
