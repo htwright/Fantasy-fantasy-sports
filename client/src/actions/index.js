@@ -20,10 +20,11 @@ const Authorization = {headers: { Authorization: `Basic ${auth}` }};
 const players = 'stephen-curry';
 const team = '';
 
-export const fetchPlayers = () => {
+export const fetchPlayers = (search) => {
+  console.log(search);
   //This gets the roster for GSW game 4 on 5/22
   //const URL = 'https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/roster_players.json?fordate=20170522&team=gsw&player';
-  const URL = `https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/cumulative_player_stats.json?playerstats=2PA,2PM,3PA,3PM,FTA,FTM&team=GSW`;
+  const URL = `https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/cumulative_player_stats.json?playerstats=2PA,2PM,3PA,3PM,FTA,FTM&team=${search}`;
   return dispatch => {
     dispatch(requestPlayers())
     //second arg in fetch can be opts

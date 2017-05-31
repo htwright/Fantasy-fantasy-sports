@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux';
+import store from '../store';
+import {fetchPlayers} from '../actions';
+//  https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular
+//  /cumulative_player_stats.json?
 
 class Header extends Component {
   constructor(props) {
     super(props);
+  }
 
+  dispatchFetch(e) {
+    // e.preventDefault();
+    var selectVal = this.selectInput.value;
+    console.log(selectVal);
+    this.props.dispatch(fetchPlayers(selectVal));
   }
 
   render() {
     return(
       <div>
+      <form id="search-form" onSubmit={e =>{e.preventDefault();console.log(e.target.value); this.dispatchFetch(this.input)}}>
         <select name="sports">
           {/*<option value hidden>Pick a sport</option>*/}
-          <option value="basketball">Basketball</option>
+          <option>Basketball</option>
           {/*<option value="hockey">Hockey</option>
           <option value="baseball">Baseball</option>
           <option value="football">Football</option>*/}
         </select>
         <span> </span>
-        <select>
+        <select name="hello" ref ={(input) => this.selectInput = input}>
           <option value hidden>Pick a team</option>
           <option value="ATL">Atlanta Hawks</option>
           <option value="BKN">Brooklyn Nets</option>
@@ -51,9 +62,17 @@ class Header extends Component {
           <option value="UTA">Utah Jazz</option>
           <option value="WAS">Washington Wizards</option>
         </select>
+        <button type="submit">Search</button>
+        </form>
       </div>
     );
   }
 }
+function mapStateToProps (state) {
+  return {
+    data: state.players.data
+  };
+}
 
-export default Header;
+
+export default connect(mapStateToProps)(Header);

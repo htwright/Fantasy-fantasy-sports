@@ -9,9 +9,5 @@ export default class TeamData extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      players: []
-    }
-
   }
 }
