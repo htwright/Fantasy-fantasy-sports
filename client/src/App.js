@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Router from 'react-router';
 import { connect } from 'react-redux';
 import Sport from './components/Sport';
 // import logo from './logo.svg';
@@ -15,15 +16,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Sport />
-        {/*<div className="App-header">
-          <h2>Welcome to Fantasy Fantasy Sports!</h2>
-        </div>
-        <p className="App-intro">It's not sports, it's not fantasy sports...</p>*/}
+      <Router>
+        <div className="App">
+          <Sport />
+            {/*
+              <div className="App-header">
+              <h2>Welcome to Fantasy Fantasy Sports!</h2>
+              </div>
+              <p className="App-intro">It's not sports, it's not fantasy sports...</p>
+            */}
         <TeamName />
         <PlayerList />
       </div>
+      </Router>
     );
   }
 }
