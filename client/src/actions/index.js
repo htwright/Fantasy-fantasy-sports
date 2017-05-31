@@ -1,3 +1,4 @@
+// import { PW } from '../../config';
 // require('dotenv').config();
 
 const RECIEVE_PLAYERS = 'RECIEVE_PLAYERS';
@@ -11,10 +12,9 @@ const requestPlayers = () => ({
   type: REQUEST_PLAYERS
 })
 //USED for validation
-const USERNAME = 'baamosk';
-const PASSWORD = 'Jajuka888'
-const auth = btoa(USERNAME + ':' + PASSWORD);
-
+// const username = 'baamosk';
+// const password = 'Jajuka888';
+const auth = btoa(process.env.REACT_APP_USERNAME + ':' + process.env.REACT_APP_PASSWORD);
 const Authorization = {headers: { Authorization: `Basic ${auth}` }};
 
 const players = 'stephen-curry';
@@ -26,12 +26,12 @@ export const fetchPlayers = (search) => {
   //const URL = 'https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/roster_players.json?fordate=20170522&team=gsw&player';
   const URL = `https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/cumulative_player_stats.json?playerstats=2PA,2PM,3PA,3PM,FTA,FTM&team=${search}`;
   return dispatch => {
-    dispatch(requestPlayers())
+    dispatch(requestPlayers());
     //second arg in fetch can be opts
     fetch(URL, Authorization)
     .then(response => response.json())
     .then(res => dispatch(recievePlayers(res.cumulativeplayerstats.playerstatsentry)))
-    .catch(err => console.error(err))
+    .catch(err => console.log(err))
   }
 }
 
