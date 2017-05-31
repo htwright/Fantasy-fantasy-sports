@@ -13,10 +13,16 @@ export const fetchPlayers = () => {
   //This gets the roster for GSW game 4 on 5/22
   const URL = 'https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/roster_players.json?fordate=20170522&team=gsw';
   return dispatch => {
-    dispatch(recievePlayers())
-
+    dispatch(requestPlayers())
+    //second arg in fetch can be opts
     fetch(URL)
     .then(response => console.log(response))
     .catch(err => console.log(err))
   }
 }
+
+// const opts = {
+//   headers: {
+//     authorization: `Bearer ${YelpToken}`
+//   }
+// }

@@ -1,5 +1,4 @@
 import React from 'react';
-
 const TeamName = () => {
   const imgUrl = 'http://i.cdn.turner.com/nba/nba/teamsites/images/legacy/warriors/LogoPrimary_300x329.jpg';
   return (

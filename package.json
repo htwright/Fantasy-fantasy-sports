@@ -25,10 +25,8 @@
     "express": "^4.14.1",
     "http-proxy-middleware": "^0.17.4",
     "npm-run-all": "^4.0.1",
-    "react-router-dom": "^4.1.1",
     "xp": "^1.0.1"
   },
   "devDependencies": {
-    "redux-thunk": "^2.2.0"
   }
 }

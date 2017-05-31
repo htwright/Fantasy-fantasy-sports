@@ -1,4 +1,5 @@
 import React from 'react';
+//import { connect } from 'react-redux';
 
 const PlayerItem = () => {
   return (
@@ -33,5 +34,6 @@ const PlayerItem = () => {
     </div>
   );
 }
+
 
 export default PlayerItem

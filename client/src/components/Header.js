@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Sport extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
 
@@ -27,4 +27,4 @@ class Sport extends Component {
   }
 }
 
-export default Sport;
+export default Header;

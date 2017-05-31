@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Sport from './components/Sport';
-// import logo from './logo.svg';
+import Header from './components/Header';
 import './App.css';
 import { fetchPlayers } from '../src/actions';
 import TeamName from './components/Team-Name';
@@ -16,19 +15,13 @@ class App extends Component {
 
   render() {
     return (
-
+      <Router>
         <div className="App">
-          <Sport />
-            {/*
-              <div className="App-header">
-              <h2>Welcome to Fantasy Fantasy Sports!</h2>
-              </div>
-              <p className="App-intro">It's not sports, it's not fantasy sports...</p>
-            */}
-        <TeamName />
-        <PlayerList />
-      </div>
-
+          <Route exact path="/" component={Header} />
+          <Route exact path="/teams" component={TeamName}/>
+          <Route exact path="/teams/players" component={Header, PlayerList}/>
+        </div>
+      </Router>
     );
   }
 }
