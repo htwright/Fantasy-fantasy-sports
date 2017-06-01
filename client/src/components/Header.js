@@ -20,6 +20,9 @@ class Header extends Component {
   }
 
   render() {
+    let teamRender = this.props.team.map((member, index)=> {
+      return(<li key={index}>member#{index+1} - {member}</li>)
+    });
     return(
       <div>
       <form id="search-form" onSubmit={e => this.dispatchFetch(e) }>
@@ -32,7 +35,7 @@ class Header extends Component {
         </select>
         <span> </span>
         <input type="text" ref={(input) => this.nameInput = input} id="name-search" placeholder="Enter a player's last name!"/>
-        <select name="hello" ref ={(input) => this.selectInput = input}>
+        {/*<select name="hello" ref ={(input) => this.selectInput = input}>
           <option value hidden>Pick a team</option>
           <option value="ATL">Atlanta Hawks</option>
           <option value="BKN">Brooklyn Nets</option>
@@ -64,8 +67,11 @@ class Header extends Component {
           <option value="TOR">Toronto Raptors</option>
           <option value="UTA">Utah Jazz</option>
           <option value="WAS">Washington Wizards</option>
-        </select>
+        </select>*/}
         <button type="submit">Search</button>
+        <ul>
+          {teamRender}
+        </ul>
         </form>
       </div>
     );
@@ -73,7 +79,8 @@ class Header extends Component {
 }
 function mapStateToProps (state) {
   return {
-    data: state.players.data
+    data: state.players.data,
+    team: state.players.team
   };
 }
 

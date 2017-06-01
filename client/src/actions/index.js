@@ -11,6 +11,12 @@ const REQUEST_PLAYERS = 'REQUEST_PLAYERS';
 const requestPlayers = () => ({
   type: REQUEST_PLAYERS
 })
+
+export const ADD_PLAYER_TO_TEAM = 'ADD_PLAYER_TO_TEAM';
+export const addPlayerToTeam = (data) => ({
+  type: ADD_PLAYER_TO_TEAM,
+  data
+})
 //USED for validation
 const username = 'baamosk';
 const password = 'Jajuka888';

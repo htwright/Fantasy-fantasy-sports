@@ -1,6 +1,7 @@
 const initialState = {
   data: [],
-  loading: false
+  loading: false,
+  team:[]
 }
 
 const players = (state = initialState, action) => {
@@ -15,6 +16,12 @@ const players = (state = initialState, action) => {
         ...state,
         data: action.data,
         loading: false
+      }
+    case 'ADD_PLAYER_TO_TEAM':
+      return{
+        ...state,
+        team:[...state.team, action.data]
+
       }
     default:
       return state;
