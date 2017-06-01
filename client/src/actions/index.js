@@ -1,12 +1,12 @@
 const RECIEVE_TEAMS = 'RECIEVE_TEAMS';
-const recieveTeams = () => ({
+const recieveTeams = (data) => ({
   type: RECIEVE_TEAMS,
+  data
 });
 
 const REQUEST_TEAMS = 'REQUEST_TEAMS';
-const requestTeams = (data) => ({
-  type: REQUEST_TEAMS,
-  data
+const requestTeams = () => ({
+  type: REQUEST_TEAMS
 });
 
 const RECIEVE_PLAYERS = 'RECIEVE_PLAYERS';
@@ -65,6 +65,17 @@ export const fetchPlayers = (search) => {
   };
 };
 
+export const fetchTeams = () => {
+  const url = 'http://localhost:8080/api/teams';
+  return dispatch =>{
+    dispatch(requestTeams());
+    fetch(url)
+      .then(res => res.json())
+      .then(res => dispatch(recieveTeams(res)))
+      .catch(err => console.error(err));
+  };
+};
+
 export const pushTeamToDb = (team) => {
   const url = 'http://localhost:8080/api/teams';
   console.log(team);
@@ -90,7 +101,7 @@ export const pushTeamToDb = (team) => {
     dispatch(dbPostStart());
     fetch(url, options)
     .then(res => res.json())
-    .then(res => {console.log(res);dispatch(dbPostSuccessful())})
+    .then(res => {console.log(res);dispatch(dbPostSuccessful());})
     .catch(err => console.error(err));
   };
 };

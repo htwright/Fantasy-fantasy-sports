@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import store from '../store';
 import PlayerList from './Player-List';
-import {pushTeamToDb, fetchPlayers} from '../actions';
+import TeamList from './Team-List';
+import {pushTeamToDb, fetchPlayers, fetchTeams} from '../actions';
 //  https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular
 //  /cumulative_player_stats.json?
 

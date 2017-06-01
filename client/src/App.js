@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { connect, Provider } from 'react-redux';
 import Header from './components/Header';
+import TeamList from './components/Team-List';
 import './App.css';
 import { fetchPlayers } from '../src/actions';
 import TeamName from './components/Team-Name';
@@ -16,12 +17,12 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+        <Router>
           <div className="App">
-            <Header />
-            {/*<Route exact path="/players" component={Header} />
-            <Route exact path="/" component={PlayerList}/>
-            <Route exact path="/teams" component={TeamName}/>*/}
+            <Route exact path="/" component={Header} />
+            <Route exact path="/teams" component={TeamList} />
           </div>
+        </Router>
       </Provider>
     );
   }
