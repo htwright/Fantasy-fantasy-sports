@@ -56,9 +56,9 @@ app.delete('/api/teams', (req, res) => {
     .catch(err => console.error(err));
 });
 
-app.get('/api/owners', (req, res) => {
+app.get('/api/owners/:owner', (req, res) => {
   Team
-    .find({owner:req.body.owner})
+    .find({owner:req.params.owner})
     .then(result => res.status(200).json(result))
     .catch(err => console.error(err));
 });

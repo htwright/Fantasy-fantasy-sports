@@ -1,4 +1,4 @@
-onst initialState = {
+const initialState = {
   data: [],
   loading: false,
   team:[]
@@ -15,7 +15,7 @@ const owner = (state = initialState, action) => {
       return{
         ...state,
         loading:false,
-        team:[]
+        data:action.data
       }
     case 'DB_GET_ERROR':
       return{

@@ -4,14 +4,21 @@ import { connect } from 'react-redux';
 import OwnerPlayer from './Owner-Player';
 
 const OwnerTeam = (props) => {
-  const ownerPlayers = props.team.map(());
+  console.log(props.team.memberIds);
+  let arr = [];
+  let index = 0;
+  for (let key in props.team.memberIds){
+    arr.push(<OwnerPlayer player={props.team.memberIds[key]} key={index} />);
+    index++;
+  }
+  // const ownerPlayers = props.team.map(());
   //const players = props.data.map((player, index) => <PlayerItem player={player} key={index} />);
   return (
 
 
       <ul>
         <li>first team</li>
-        {ownerPlayers}
+        {arr}
         <li>second team</li>
         <li>third team</li>
       </ul>
@@ -24,7 +31,7 @@ const OwnerTeam = (props) => {
 // Teams.find({owner:ownerName}) == array of teams for owner
 const mapStateToProps = (state) => {
   return{
-    data: state.players.data
+    data: state.owner.data
   }
 }
-export default connect(mapStateToProps)(PlayerList)
+export default connect(mapStateToProps)(OwnerTeam)

@@ -48,8 +48,9 @@ export const dbGetStart = () => ({
 });
 
 export const DB_GET_SUCCESSFUL = 'DB_GET_SUCCESSFUL';
-export const dbGetSuccessful = () => ({
-  type: DB_GET_SUCCESSFUL
+export const dbGetSuccessful = (data) => ({
+  type: DB_GET_SUCCESSFUL,
+  data
 });
 
 export const DB_GET_ERROR = 'DB_GET_ERROR';
@@ -81,6 +82,14 @@ export const fetchPlayers = (search) => {
     .catch(err => console.log(err));
   };
 };
+
+// export const fetchPlayer = (search) => {
+//   const URL = `https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/cumulative_player_stats.json?playerstats=2PA,2PM,3PA,3PM,FTA,FTM,PTS/G,AST/G,STL/G,REB/G,TOV/G&player=${search}`;
+//   fetch(URL, Authorization)
+//   .then(res => res.json())
+//   .catch(err => console.error(err));
+// };
+
 //Promise.all([fetchPlayer([0]),...])
 export const fetchTeams = () => {
   const url = '/api/teams';
@@ -125,20 +134,16 @@ export const pushTeamToDb = (teamObj) => {
 };
 
 export const fetchOwnerTeam = (owner) => {
-  const url = '/api/owners';
-  const options = {
-    method: 'GET',
-    body: JSON.stringify({owner:owner})
-  };
+  const url = `/api/owners/${owner}`;
   return dispatch => {
     dispatch(dbGetStart());
 
-    fetch(url, options)
+    fetch(url)
     .then(res => res.json())
-    .then(res => {console.log(res);dispatch(dbGetSuccessful());})
+    .then(res => {console.log(res);dispatch(dbGetSuccessful(res));})
     .catch(err => console.error(err));
   };
-}
+};
 
 // const opts = {
 //   headers: {
