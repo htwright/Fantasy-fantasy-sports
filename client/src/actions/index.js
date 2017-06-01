@@ -59,6 +59,12 @@ export const dbGetError = (error) => ({
   error
 });
 
+export const TEAM_DATA_PUSH = 'TEAM_DATA_PUSH';
+export const teamDataPush = (data) => ({
+  type:TEAM_DATA_PUSH,
+  data
+});
+
 //USED for validation
 const username = 'baamosk';
 const password = 'Jajuka888';

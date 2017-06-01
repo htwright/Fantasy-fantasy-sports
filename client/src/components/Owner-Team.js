@@ -8,7 +8,7 @@ const OwnerTeam = (props) => {
   let arr = [];
   let index = 0;
   for (let key in props.team.memberIds){
-    arr.push(<OwnerPlayer player={props.team.memberIds[key]} key={index} />);
+    arr.push(<OwnerPlayer player={props.team.memberIds[key]}index={index} key={index} />);
     index++;
   }
   // const ownerPlayers = props.team.map(());

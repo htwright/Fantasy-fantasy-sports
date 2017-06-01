@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {teamDataPush} from '../actions';
 // import {fetchPlayer} from '../actions';
 
 class OwnerPlayer extends Component {
 
   componentDidMount(){
     let player = this.fetchPlayer(this.props.player);
-    let data = player.then(res=> res);
-    console.log(data);
+    player.then(res=> this.props.dispatch(teamDataPush(res)));
+    // console.log(data);
   }
   fetchPlayer(search){
     const username = 'baamosk';
@@ -16,15 +17,16 @@ class OwnerPlayer extends Component {
     const Authorization = {headers: { Authorization: `Basic ${auth}` }};
     const URL = `https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/cumulative_player_stats.json?playerstats=2PA,2PM,3PA,3PM,FTA,FTM,PTS/G,AST/G,STL/G,REB/G,TOV/G&player=${search}`;
     return new Promise(function(resolve,reject){
-      resolve(fetch(URL, Authorization).then(res=>res.json()).then(res=>res));
-      // take care of the reject if needed within the fetch in case connection refused or !res.ok
+      fetch(URL, Authorization).then(res => res.json() ).then(res => resolve(res));      // take care of the reject if needed within the fetch in case connection refused or !res.ok
     });
   }
 
 
 
   render() {
-    // console.log(data);
+    console.log(this.props.data);
+    // console.log(this.props.data.cumulativeplayerstats);
+    // let player = this.props.data.cumulativeplayerstats.playerstatsentry;
     return (
     <div>
       <table>
@@ -45,8 +47,10 @@ class OwnerPlayer extends Component {
   }
 }
 
-// function mapStateToProps(state){
-//   data:state.owner.data
-// }
+const mapStateToProps =(state, ownProps) =>{
+  return {
+    data:state.owner.teamData[ownProps.index]
+  };
+};
 
-export default connect()(OwnerPlayer);
+export default connect(mapStateToProps)(OwnerPlayer);

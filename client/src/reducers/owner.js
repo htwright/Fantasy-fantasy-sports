@@ -1,7 +1,7 @@
 const initialState = {
   data: [],
   loading: false,
-  team:[]
+  teamData:[]
 }
 
 const owner = (state = initialState, action) => {
@@ -22,6 +22,13 @@ const owner = (state = initialState, action) => {
         ...state,
         loading:false
       }
+
+    case 'TEAM_DATA_PUSH':
+      return{
+        ...state,
+        teamData:[...state.teamData, action.data]
+      }
+
     default:
       return state;
   }
