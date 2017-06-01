@@ -5,26 +5,42 @@ const RECIEVE_PLAYERS = 'RECIEVE_PLAYERS';
 const recievePlayers = (data) => ({
   type: RECIEVE_PLAYERS,
   data
-})
+});
 
 const REQUEST_PLAYERS = 'REQUEST_PLAYERS';
 const requestPlayers = () => ({
   type: REQUEST_PLAYERS
-})
+});
 
 export const ADD_PLAYER_TO_TEAM = 'ADD_PLAYER_TO_TEAM';
 export const addPlayerToTeam = (data) => ({
   type: ADD_PLAYER_TO_TEAM,
   data
-})
+});
+
+export const DB_POST_START = 'DB_POST_START';
+export const dbPostStart = () => ({
+  type: DB_POST_START
+});
+
+export const DB_POST_SUCCESSFUL = 'DB_POST_SUCCESSFUL';
+export const dbPostSuccessful = () => ({
+  type: DB_POST_SUCCESSFUL
+});
+
+export const DB_POST_ERROR = 'DB_POST_ERROR';
+export const dbPostError = (error) => ({
+  type: DB_POST_ERROR,
+  error
+});
 //USED for validation
 const username = 'baamosk';
 const password = 'Jajuka888';
 const auth = btoa(username + ':' + password);
 const Authorization = {headers: { Authorization: `Basic ${auth}` }};
 
-const players = 'stephen-curry';
-const team = '';
+// const players = 'stephen-curry';
+// const team = '';
 
 export const fetchPlayers = (search) => {
   console.log(search);
@@ -37,9 +53,25 @@ export const fetchPlayers = (search) => {
     fetch(URL, Authorization)
     .then(response => response.json())
     .then(res => dispatch(recievePlayers(res.cumulativeplayerstats.playerstatsentry)))
-    .catch(err => console.log(err))
-  }
-}
+    .catch(err => console.log(err));
+  };
+};
+
+export const pushTeamToDb = (team) => {
+  const url = 'http://localhost:8080/api/teams';
+  const options = {
+    method: 'POST',
+    body:team
+  };
+  return dispatch => {
+    dispatch(dbPostStart());
+    fetch(url, options)
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
+  };
+};
+  
 
 // const opts = {
 //   headers: {

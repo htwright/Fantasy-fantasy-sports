@@ -21,7 +21,22 @@ const players = (state = initialState, action) => {
       return{
         ...state,
         team:[...state.team, action.data]
-
+      }
+    case 'DB_POST_START':
+      return{
+        ...state,
+        loading:true
+      }
+    case 'DB_POST_SUCCESSFUL':
+      return{
+        ...state,
+        loading:false,
+        team:[]
+      }
+    case 'DB_POST_ERROR':
+      return{
+        ...state,
+        loading:false
       }
     default:
       return state;

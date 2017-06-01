@@ -9,7 +9,7 @@ class PlayerItem extends Component {
 
   addPlayer(e){
     e.preventDefault();
-    this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName+' '+this.props.player.player.LastName));
+    this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName+'-'+this.props.player.player.LastName));
   }
 
   render() {

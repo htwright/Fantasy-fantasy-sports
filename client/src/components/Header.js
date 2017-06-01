@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import store from '../store';
-import {fetchPlayers} from '../actions';
+import {pushTeamToDb, fetchPlayers} from '../actions';
 //  https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular
 //  /cumulative_player_stats.json?
 
@@ -17,6 +17,11 @@ class Header extends Component {
     // var selectVal = this.selectInput.value;
     // console.log(selectVal);
     this.props.dispatch(fetchPlayers(val));
+  }
+
+  addToDatabase(e){
+    e.preventDefault();
+    this.props.dispatch(pushTeamToDb(this.props.team));
   }
 
   render() {
@@ -71,6 +76,7 @@ class Header extends Component {
         <button type="submit">Search</button>
         <ul>
           {teamRender}
+          <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>
       </div>
