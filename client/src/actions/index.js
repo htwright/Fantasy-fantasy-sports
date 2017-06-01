@@ -1,5 +1,13 @@
-// import { PW } from '../../config';
-// require('dotenv').config();
+const RECIEVE_TEAMS = 'RECIEVE_TEAMS';
+const recieveTeams = () => ({
+  type: RECIEVE_TEAMS,
+});
+
+const REQUEST_TEAMS = 'REQUEST_TEAMS';
+const requestTeams = (data) => ({
+  type: REQUEST_TEAMS,
+  data
+});
 
 const RECIEVE_PLAYERS = 'RECIEVE_PLAYERS';
 const recievePlayers = (data) => ({
@@ -86,7 +94,7 @@ export const pushTeamToDb = (team) => {
     .catch(err => console.error(err));
   };
 };
-  
+
 
 // const opts = {
 //   headers: {

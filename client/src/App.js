@@ -5,7 +5,6 @@ import Header from './components/Header';
 import './App.css';
 import { fetchPlayers } from '../src/actions';
 import TeamName from './components/Team-Name';
-import PlayerList from './components/Player-List';
 import store from './store';
 
 class App extends Component {
@@ -19,7 +18,6 @@ class App extends Component {
       <Provider store={store}>
           <div className="App">
             <Header />
-            <PlayerList />
             {/*<Route exact path="/players" component={Header} />
             <Route exact path="/" component={PlayerList}/>
             <Route exact path="/teams" component={TeamName}/>*/}
