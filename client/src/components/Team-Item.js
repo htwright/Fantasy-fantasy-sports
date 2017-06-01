@@ -15,8 +15,10 @@ class TeamItem extends Component {
       list.push(<td key={index} name={team.memberIds[player]}>{team.memberIds[player]}</td>);
       index++;
     }
+    index = 0;
     return(
         <tr>
+        <strong>{this.props.team.owner}</strong>
           {list}
           <button type="button">Go To Page</button>
          

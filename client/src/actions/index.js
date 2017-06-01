@@ -66,7 +66,7 @@ export const fetchPlayers = (search) => {
 };
 
 export const fetchTeams = () => {
-  const url = 'http://localhost:8080/api/teams';
+  const url = '/api/teams';
   return dispatch =>{
     dispatch(requestTeams());
     fetch(url)
@@ -76,22 +76,22 @@ export const fetchTeams = () => {
   };
 };
 
-export const pushTeamToDb = (team) => {
-  const url = 'http://localhost:8080/api/teams';
-  console.log(team);
+export const pushTeamToDb = (teamObj) => {
+  const url = '/api/teams';
+  // console.log(team);
   const headers = {
     'Content-Type': 'application/json'
   };
-  const teamObj = {
-    owner:'harrison',
-    players: {
-      guard1:team[0],
-      guard2:team[1],
-      forward1:team[2],
-      forward2:team[3],
-      center:team[4]
-    }
-  };
+  // const teamObj = {
+  //   owner:'harrison',
+  //   players: {
+  //     guard1:team[0],
+  //     guard2:team[1],
+  //     forward1:team[2],
+  //     forward2:team[3],
+  //     center:team[4]
+  //   }
+  // };
   const options = {
     method: 'POST',
     body: JSON.stringify(teamObj),

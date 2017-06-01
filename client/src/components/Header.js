@@ -23,7 +23,18 @@ class Header extends Component {
 
   addToDatabase(e){
     e.preventDefault();
-    this.props.dispatch(pushTeamToDb(this.props.team));
+    console.log(this.props.team);
+    let teamObj = {
+      owner: this.ownerInput.value,
+      players:{
+        guard1:this.props.team[0],
+        guard2:this.props.team[1],
+        forward1:this.props.team[2],
+        forward2:this.props.team[3],
+        center:this.props.team[4]
+      }
+    };
+    this.props.dispatch(pushTeamToDb(teamObj));
   }
 
   render() {
@@ -78,6 +89,7 @@ class Header extends Component {
         <button type="submit">Search</button>
         <ul>
           {teamRender}
+          <input type="text" placeholder="Team Owner's Name" ref={(input) => this.ownerInput = input}/>
           <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>

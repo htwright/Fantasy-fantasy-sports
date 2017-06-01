@@ -1,16 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import TeamItem from './Team-Item';
 import { connect } from 'react-redux';
 import {fetchTeams} from '../actions';
 
-const TeamList = (props) => {
-  props.dispatch(fetchTeams());
-  console.log(props.data);
-  const teams = props.data.map((team, index) => <TeamItem team={team} key={index} />);
+class TeamList extends Component {
+
+
+
+  componentDidMount(){
+    this.props.dispatch(fetchTeams());
+
+
+  }
+  // props.dispatch(fetchTeams());
+  // console.log(props.data);
+  render(){
+  const teams = this.props.data.map((team, index) => <TeamItem team={team} key={index} />);
+
   return (
     <div>
       <table>
         <tr>
+        <th>Owner</th>
         <th>Guard 1</th>
         <th>Guard 2</th>
         <th>Forward 1</th>
@@ -21,6 +32,8 @@ const TeamList = (props) => {
       </table>
     </div>
   );
+  }
+
 };
 
 const mapStateToProps = (state) => {
