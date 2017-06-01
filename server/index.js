@@ -56,14 +56,14 @@ app.delete('/api/teams', (req, res) => {
     .catch(err => console.error(err)); 
 });
 
-// app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Unhandled requests which aren't for the API should serve index.html so
 // client-side routing using browserHistory can function
-// app.get(/^(?!\/api(\/|$))/, (req, res) => {
-//   const index = path.resolve(__dirname, '../client/build', 'index.html');
-//   res.sendFile(index);
-// });
+app.get(/^(?!\/api(\/|$))/, (req, res) => {
+  const index = path.resolve(__dirname, '../client/build', 'index.html');
+  res.sendFile(index);
+});
 
 let server;
 function runServer(port=3001) {

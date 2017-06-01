@@ -11,7 +11,6 @@ const TeamList = (props) => {
     <div>
       <table>
         <tr>
-        <th>Turnovers/Game</th>
         <th>Guard 1</th>
         <th>Guard 2</th>
         <th>Forward 1</th>
