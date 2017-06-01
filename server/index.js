@@ -26,7 +26,7 @@ app.post('/api/teams', (req, res) => {
   Team
     .create({
       owner: 'hello, world',
-      memberIds: req.body.memberIds
+      memberIds: req.body.teamObj
     })
     .then((result)=> res.status(201).json(result))
     .catch(err => console.error(err));

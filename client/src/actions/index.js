@@ -59,15 +59,22 @@ export const fetchPlayers = (search) => {
 
 export const pushTeamToDb = (team) => {
   const url = 'http://localhost:8080/api/teams';
+  const teamObj = {
+    guard1:team[0],
+    guard2:team[1],
+    forward1:team[2],
+    forward2:team[3],
+    center:team[4]
+  };
   const options = {
     method: 'POST',
-    body:team
+    body: teamObj
   };
   return dispatch => {
     dispatch(dbPostStart());
     fetch(url, options)
     .then(res => res.json())
-    .then(res => console.log(res))
+    .then(res => dispatch(dbPostSuccessful()))
     .catch(err => console.error(err));
   };
 };

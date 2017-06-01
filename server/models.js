@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const teamSchema = mongoose.Schema({
-  owner: {type: String, required: true},
+  owner: String,
   memberIds: {
-    guard1: Number,
-    guard2: Number,
-    forward1: Number,
-    forward2: Number,
-    center: Number
+    guard1: String,
+    guard2: String,
+    forward1: String,
+    forward2: String,
+    center: String
   }
 });
 
