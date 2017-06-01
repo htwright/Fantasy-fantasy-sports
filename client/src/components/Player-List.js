@@ -6,9 +6,17 @@ const PlayerList = (props) => {
   const players = props.data.map((player, index) => <PlayerItem player={player} key={index} />);
   return (
     <div>
-      <ul>
+      <table>
+      <tr>
+        <th>Player Name</th>
+        <th>Points/Game</th>
+        <th>Rebounds/Game</th>
+        <th>Assists/Game</th>
+        <th>Steals/Game</th>
+        <th>Turnovers/Game</th>
+      </tr>
         {players}
-      </ul>
+      </table>
     </div>
   );
 }
