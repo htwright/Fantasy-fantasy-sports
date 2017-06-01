@@ -41,6 +41,23 @@ export const dbPostError = (error) => ({
   type: DB_POST_ERROR,
   error
 });
+
+export const DB_GET_START = 'DB_GET_START';
+export const dbGetStart = () => ({
+  type: DB_GET_START
+});
+
+export const DB_GET_SUCCESSFUL = 'DB_GET_SUCCESSFUL';
+export const dbGetSuccessful = () => ({
+  type: DB_GET_SUCCESSFUL
+});
+
+export const DB_GET_ERROR = 'DB_GET_ERROR';
+export const dbGetError = (error) => ({
+  type: DB_GET_ERROR,
+  error
+});
+
 //USED for validation
 const username = 'baamosk';
 const password = 'Jajuka888';
@@ -64,7 +81,7 @@ export const fetchPlayers = (search) => {
     .catch(err => console.log(err));
   };
 };
-
+//Promise.all([fetchPlayer([0]),...])
 export const fetchTeams = () => {
   const url = '/api/teams';
   return dispatch =>{
@@ -75,6 +92,7 @@ export const fetchTeams = () => {
       .catch(err => console.error(err));
   };
 };
+
 
 export const pushTeamToDb = (teamObj) => {
   const url = '/api/teams';
@@ -106,6 +124,21 @@ export const pushTeamToDb = (teamObj) => {
   };
 };
 
+export const fetchOwnerTeam = (owner) => {
+  const url = '/api/owners';
+  const options = {
+    method: 'GET',
+    body: JSON.stringify({owner:owner})
+  };
+  return dispatch => {
+    dispatch(dbGetStart());
+
+    fetch(url, options)
+    .then(res => res.json())
+    .then(res => {console.log(res);dispatch(dbGetSuccessful());})
+    .catch(err => console.error(err));
+  };
+}
 
 // const opts = {
 //   headers: {

@@ -7,6 +7,7 @@ import './App.css';
 import { fetchPlayers } from '../src/actions';
 import TeamName from './components/Team-Name';
 import store from './store';
+import Owner from './components/Owner';
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Route exact path="/" component={Header} />
+            <Route exact path="/owner" component={Owner} />
             <Route exact path="/teams" component={TeamList} />
           </div>
         </Router>

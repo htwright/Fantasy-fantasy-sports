@@ -53,7 +53,14 @@ app.delete('/api/teams', (req, res) => {
   Team
     .findByIdAndRemove(req.body.id)
     .then(() => res.status(204).end())
-    .catch(err => console.error(err)); 
+    .catch(err => console.error(err));
+});
+
+app.get('/api/owners', (req, res) => {
+  Team
+    .find({owner:req.body.owner})
+    .then(result => res.status(200).json(result))
+    .catch(err => console.error(err));
 });
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
