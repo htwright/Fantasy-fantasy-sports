@@ -10,6 +10,7 @@ class Owner extends Component {
   }
   //This gets all the owners teams and players
   render(){
+    console.log(this.props.match.params.owner);
     const ownerTeams = this.props.data.map((ownerTeam, index) => <OwnerTeam team={ownerTeam} key={index} />);
 
     return (

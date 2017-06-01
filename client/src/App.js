@@ -21,7 +21,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Route exact path="/" component={Header} />
-            <Route exact path="/owner" component={Owner} />
+            <Route exact path="/owner/:owner" component={Owner} />
             <Route exact path="/teams" component={TeamList} />
           </div>
         </Router>

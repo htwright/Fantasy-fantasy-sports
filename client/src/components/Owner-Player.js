@@ -3,28 +3,28 @@ import {connect} from 'react-redux';
 // import {fetchPlayer} from '../actions';
 
 class OwnerPlayer extends Component {
-  componentDidMount(){
-    console.log(this.props.player);
-    let player = this.fetchPlayer(this.props.player);
-    player.then(res=>res.json()).then(res=>console.log(res.cumulativeplayerstats.playerstatsentry[0].player.FirstName));
-  }
 
+  componentDidMount(){
+    let player = this.fetchPlayer(this.props.player);
+    let data = player.then(res=> res);
+    console.log(data);
+  }
   fetchPlayer(search){
     const username = 'baamosk';
     const password = 'Jajuka888';
     const auth = btoa(username + ':' + password);
     const Authorization = {headers: { Authorization: `Basic ${auth}` }};
     const URL = `https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular/cumulative_player_stats.json?playerstats=2PA,2PM,3PA,3PM,FTA,FTM,PTS/G,AST/G,STL/G,REB/G,TOV/G&player=${search}`;
-    return fetch(URL, Authorization)
-  // .then(res => res.json())
-  // .then(res => res)
-  // .catch(err => console.error(err));
-
+    return new Promise(function(resolve,reject){
+      resolve(fetch(URL, Authorization).then(res=>res.json()).then(res=>res));
+      // take care of the reject if needed within the fetch in case connection refused or !res.ok
+    });
   }
 
 
 
   render() {
+    // console.log(data);
     return (
     <div>
       <table>
