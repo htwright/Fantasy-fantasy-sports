@@ -1,6 +1,4 @@
-table {
-  width: 400;
-}
-.header {
-
+table, th, td, tr {
+  padding: 5px;
+  margin-left: 15px;
 }

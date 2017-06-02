@@ -3,7 +3,12 @@
   height: 27px;
   margin: 12px;
 }
-.search {
-
+.center {
+  width:85%;
+  margin:0 auto;
+  /*text-align: center;*/
 }
-.owner-name {}
+
+.list {
+  text-align: center;
+}

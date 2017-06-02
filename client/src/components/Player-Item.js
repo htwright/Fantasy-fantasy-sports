@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {addPlayerToTeam} from '../actions';
 import { connect } from 'react-redux';
-
+import './player-item.css';
 class PlayerItem extends Component {
   constructor(props){
     super(props);
@@ -16,9 +16,9 @@ class PlayerItem extends Component {
   }
 
   render() {
-      let player = this.props.player;
-      let headings = ['Player Name', 'Team', 'Position','Points/pg','Rebounds/PG','Assists/PG','Steals/PG','Turnovers/PG'];
-      let headers = headings.map(header => <th>{header}</th> );
+    let player = this.props.player;
+    let headings = ['Player Name', 'Team', 'Position','Points/pg','Rebounds/PG','Assists/PG','Steals/PG','Turnovers/PG'];
+    let headers = headings.map(header => <th>{header}</th> );
     return(
       <tbody>
         <tr>
@@ -33,8 +33,8 @@ class PlayerItem extends Component {
           <td name={player.player.FirstName + 'turnovers'}>{player.stats.TovPerGame['#text']}</td>
           <td><button onClick={e=>this.addPlayer(e)} type="button">Add {player.player.FirstName + ' ' + player.player.LastName} to team!</button></td>
         </tr>
-</tbody>
-  );
+      </tbody>
+    );
   }
 }
 

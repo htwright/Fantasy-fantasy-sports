@@ -39,7 +39,7 @@ class Header extends Component {
     this.props.dispatch(pushTeamToDb(teamObj));
     //this.ownerInput.value='';
     //<Link to=""></Link>
-    history.push(`/owner/:${teamObj.owner}`);
+    //history.push(`/owner/:${teamObj.owner}`);
 
   }
 
@@ -104,9 +104,10 @@ class Header extends Component {
           <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>
-        <span>  <PlayerList />   {teamRender}      </span>
-
-
+          <div className="center">
+            <PlayerList className="list" />
+            {teamRender}
+          </div>
       </div>
     );
   }

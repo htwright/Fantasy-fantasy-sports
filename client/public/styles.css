@@ -1,0 +1,14 @@
+th, td {
+  padding: 5px;
+  margin-left: 15px;
+  border: 1px solid black;
+}
+
+ul {
+  list-style: none;
+}
+
+ul, li {
+  padding: 5px;
+  text-decoration: none;
+}
