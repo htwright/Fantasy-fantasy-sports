@@ -16,12 +16,10 @@ const OwnerTeam = (props) => {
   return (
 
 
-      <ul>
-        <li>first team</li>
-        {arr}
-        <li>second team</li>
-        <li>third team</li>
-      </ul>
+      <div>
+      {arr}
+      {/*{arr.map(player => player)}*/}
+      </div>
 
   );
 }

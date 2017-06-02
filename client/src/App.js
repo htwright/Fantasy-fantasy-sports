@@ -10,6 +10,7 @@ import store from './store';
 import Owner from './components/Owner';
 import { Navbar } from 'react-bootstrap';
 import PlayerList from './components/Player-List';
+import OwnerList from './components/Owner-List';
 
 class App extends Component {
 
@@ -24,7 +25,8 @@ class App extends Component {
           <div className="App">
 
             <Route exact path="/" component={Header} />
-            <Route exact path="/owner/:owner" component={Owner} />
+            <Route exact path="/owners" component={OwnerList} />
+            <Route exact path="/owners/:owner" component={Owner} />
             <Route exaxt path="/players" component={PlayerList}/>
             <Route exact path="/teams" component={TeamList} />
           </div>

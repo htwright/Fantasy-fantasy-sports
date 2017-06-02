@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import {connect} from 'react-redux';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import store from '../store';
 import PlayerList from './Player-List';
 import TeamList from './Team-List';
@@ -36,7 +37,10 @@ class Header extends Component {
       }
     };
     this.props.dispatch(pushTeamToDb(teamObj));
-    this.ownerInput.value='';
+    //this.ownerInput.value='';
+    //<Link to=""></Link>
+    history.push(`/owner/:${teamObj.owner}`);
+
   }
 
   render() {
@@ -46,6 +50,7 @@ class Header extends Component {
     });
     return(
       <div>
+      <Link to='/owners'>Click to see owners</Link>
       <h1>Welcome to</h1><h1>Fantasy Fantasy Sports</h1>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7exq6_YVJGfo6equ6tfjitTy5SxX8OkpKadodGj86IYVsFWSW" width={200} height={200} />
             <h3>Choose a Sport</h3>

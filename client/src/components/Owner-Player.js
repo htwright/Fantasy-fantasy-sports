@@ -32,12 +32,10 @@ class OwnerPlayer extends Component {
     // let player = this.props.data.cumulativeplayerstats.playerstatsentry;
     return (
     <div>
-
       <table>
-      {this.props.player ? 
+      {this.props.player ?
         <tr>
-          <td name={this.props.player.player.FirstName + 'name'}>{this.props.player.player.FirstName} {this.props.player.player.LastName}
-          <button onClick={e=>this.addPlayer(e)} type="button">Add {this.props.player.player.FirstName + ' ' + this.props.player.player.LastName} to team!</button></td>
+          <td name={this.props.player.player.FirstName + 'name'}>{this.props.player.player.FirstName} {this.props.player.player.LastName}</td>
           <td name={this.props.player.player.FirstName + 'position'}>{this.props.player.stats.Position}</td>
           <td name={this.props.player.player.FirstName + 'points-per-game'}>{this.props.player.stats.PtsPerGame['#text']}</td>
           <td name={this.props.player.player.FirstName + 'rebounds'}>{this.props.player.stats.RebPerGame['#text']}</td>

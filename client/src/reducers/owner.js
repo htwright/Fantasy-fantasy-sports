@@ -1,37 +1,43 @@
 const initialState = {
   data: [],
   loading: false,
-  teamData:[]
-}
+  teamData: [],
+  teams:[]
+};
 
 const owner = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
+    case 'RECIEVE_TEAMS':
+      return {
+        ...state,
+        teams: action.data
+      };
     case 'DB_GET_START':
-      return{
+      return {
         ...state,
-        loading:true
-      }
+        loading: true,
+      };
     case 'DB_GET_SUCCESSFUL':
-      return{
+      return {
         ...state,
-        loading:false,
-        data:action.data
-      }
+        loading: false,
+        data: action.data,
+      };
     case 'DB_GET_ERROR':
-      return{
+      return {
         ...state,
-        loading:false
-      }
+        loading: false,
+      };
 
     case 'TEAM_DATA_PUSH':
-      return{
+      return {
         ...state,
-        teamData:[...state.teamData, action.data]
-      }
+        teamData: [...state.teamData, action.data],
+      };
 
     default:
       return state;
   }
-}
+};
 
-export default owner
+export default owner;
