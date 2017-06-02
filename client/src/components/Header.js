@@ -25,8 +25,7 @@ class Header extends Component {
 
   addToDatabase(e){
     e.preventDefault();
-    console.log(this.props.team);
-    let teamObj = {
+        let teamObj = {
       owner: this.ownerInput.value,
       players:{
         guard1:this.props.team[0],
@@ -44,7 +43,7 @@ class Header extends Component {
       return(<li key={index}>member#{index+1} - {member}</li>)
     });
     return(
-      <d>
+      <div>
       <h1>Welcome to Fantasy Fantasy Sports</h1>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7exq6_YVJGfo6equ6tfjitTy5SxX8OkpKadodGj86IYVsFWSW" width={200} height={200} />
             <h3>Choose a Sport</h3>
@@ -101,7 +100,7 @@ class Header extends Component {
         <span>  <PlayerList />   {teamRender}      </span>
 
 
-      </d>
+      </div>
     );
   }
 }
