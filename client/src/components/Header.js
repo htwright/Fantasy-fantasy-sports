@@ -21,6 +21,7 @@ class Header extends Component {
     // var selectVal = this.selectInput.value;
     // console.log(selectVal);
     this.props.dispatch(fetchPlayers(val));
+    this.nameInput.value='';
   }
   addToDatabase(e){
     e.preventDefault();
@@ -35,6 +36,7 @@ class Header extends Component {
       }
     };
     this.props.dispatch(pushTeamToDb(teamObj));
+    this.ownerInput.value='';
   }
 
   render() {
@@ -57,7 +59,7 @@ class Header extends Component {
           <option value="baseball">Baseball</option>
           <option value="football">Football</option>*/}
         </select>
-        <input className="search" type="text" ref={(input) => this.nameInput = input} id="name-search" placeholder="Find your player..."/>
+        <input className="search" type="text" ref={(input) => this.nameInput = input} id="name-search" placeholder="Search By Last Name"/>
         {/*<select name="hello" ref ={(input) => this.selectInput = input}>
           <option value hidden>Pick a team</option>
           <option value="ATL">Atlanta Hawks</option>
