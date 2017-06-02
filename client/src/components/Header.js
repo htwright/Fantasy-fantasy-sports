@@ -50,7 +50,7 @@ class Header extends Component {
     });
     return(
       <div>
-      <Link to='/owners'>Click to see owners</Link>
+      <Link to='/teams'>Click to see teams</Link>
       <h1>Welcome to</h1><h1>Fantasy Fantasy Sports</h1>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7exq6_YVJGfo6equ6tfjitTy5SxX8OkpKadodGj86IYVsFWSW" width={200} height={200} />
             <h3>Choose a Sport</h3>
@@ -100,7 +100,7 @@ class Header extends Component {
           <button type="submit">Search</button>
 
         <ul>
-          <input className="owner-name"type="text" placeholder="Name of Owner" ref={(input) => this.ownerInput = input}/>
+          <input className="owner-name"type="text" placeholder="Name of Team" ref={(input) => this.ownerInput = input}/>
           <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>

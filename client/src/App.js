@@ -25,10 +25,10 @@ class App extends Component {
           <div className="App">
 
             <Route exact path="/" component={Header} />
-            <Route exact path="/owners" component={OwnerList} />
-            <Route exact path="/owners/:owner" component={Owner} />
+            <Route exact path="/teams" component={OwnerList} />
+            <Route exact path="/teams/:owner" component={Owner} />
             <Route exaxt path="/players" component={PlayerList}/>
-            <Route exact path="/teams" component={TeamList} />
+            {/*<Route exact path="/teams" component={TeamList} />*/}
           </div>
         </Router>
       </Provider>

@@ -12,16 +12,11 @@ class OwnerList extends Component {
   }
 
   render(){
-    let arr = [];
     console.log(this.props.teams);
 
     //let dumbArr = this.props.teams[0].slice(0);
     const ownerArr = this.props.teams.map((team, index) => {
-      if(!(team.owner in arr)){
-        arr.push(team.owner);
-        return(<li key={index}><Link to={"/owners/"+team.owner} index={index}>{team.owner}</Link></li>)
-      } else {
-      }
+        return(<li key={index}><Link to={"/teams/"+team.owner} index={index}>{team.owner}</Link></li>)
     });
     return (
       <div>
