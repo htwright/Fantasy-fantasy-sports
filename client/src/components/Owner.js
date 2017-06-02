@@ -6,7 +6,7 @@ import {fetchOwnerTeam} from '../actions';
 class Owner extends Component {
 
   componentDidMount(){
-    this.props.dispatch(fetchOwnerTeam('Jacob'));
+    this.props.dispatch(fetchOwnerTeam(this.props.match.params.owner));
   }
   //This gets all the owners teams and players
   render(){
