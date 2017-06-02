@@ -95,7 +95,7 @@ class Header extends Component {
           <button type="submit">Search</button>
 
         <ul>
-          <input className="owner-name"type="text" placeholder="Name your team" ref={(input) => this.ownerInput = input}/>
+          <input className="owner-name"type="text" placeholder="Name of Owner" ref={(input) => this.ownerInput = input}/>
           <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>

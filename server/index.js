@@ -23,6 +23,7 @@ app.get('/api/teams', (req, res) => {
 
 app.post('/api/teams', (req, res) => {
   console.log(req.body);
+  req.body.owner = req.body.owner.toLowerCase();
   Team
     .create({
       owner: req.body.owner,
@@ -57,6 +58,7 @@ app.delete('/api/teams', (req, res) => {
 });
 
 app.get('/api/owners/:owner', (req, res) => {
+  req.params.owner = req.params.owner.toLowerCase();
   Team
     .find({owner:req.params.owner})
     .then(result => res.status(200).json(result))

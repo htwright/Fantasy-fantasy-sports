@@ -38,4 +38,4 @@ class PlayerItem extends Component {
   }
 }
 
-export default PlayerItem;
+export default connect()(PlayerItem);
