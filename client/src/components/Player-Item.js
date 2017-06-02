@@ -9,7 +9,10 @@ class PlayerItem extends Component {
 
   addPlayer(e){
     e.preventDefault();
-    this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName+' '+this.props.player.player.LastName));
+    //This is the entire object
+    //this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName));
+    //This is just the fullName
+    this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName+'-Yolo-'+this.props.player.player.LastName));
   }
 
   render() {
@@ -17,7 +20,7 @@ class PlayerItem extends Component {
       let headings = ['Player Name', 'Team', 'Position','Points/pg','Rebounds/PG','Assists/PG','Steals/PG','Turnovers/PG'];
       let headers = headings.map(header => <th>{header}</th> );
     return(
-
+      <tbody>
         <tr>
           {/*Render data into here*/}
           <td name={player.player.FirstName + 'name'}>{player.player.FirstName} {this.props.player.player.LastName}</td>
@@ -30,12 +33,9 @@ class PlayerItem extends Component {
           <td name={player.player.FirstName + 'turnovers'}>{player.stats.TovPerGame['#text']}</td>
           <td><button onClick={e=>this.addPlayer(e)} type="button">Add {player.player.FirstName + ' ' + player.player.LastName} to team!</button></td>
         </tr>
-
+</tbody>
   );
   }
 }
-function mapStateToProps(){
 
-}
-
-export default connect(mapStateToProps)(PlayerItem);
+export default PlayerItem;

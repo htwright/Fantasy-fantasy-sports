@@ -22,7 +22,6 @@ class Header extends Component {
     // console.log(selectVal);
     this.props.dispatch(fetchPlayers(val));
   }
-
   addToDatabase(e){
     e.preventDefault();
         let teamObj = {
@@ -39,12 +38,15 @@ class Header extends Component {
   }
 
   render() {
+    //this is the entire object from API--console.log('this is inside the render function', this.props.team);
     let teamRender = this.props.team.map((member, index)=> {
+      console.log('member is', member.FirstName);
+      console.log('index is', index);
       return(<li key={index}>member#{index+1} - {member}</li>)
     });
     return(
       <div>
-      <h1>Welcome to Fantasy Fantasy Sports</h1>
+      <h1>Welcome to</h1><h1>Fantasy Fantasy Sports</h1>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7exq6_YVJGfo6equ6tfjitTy5SxX8OkpKadodGj86IYVsFWSW" width={200} height={200} />
             <h3>Choose a Sport</h3>
       <form id="search-form" onSubmit={e => this.dispatchFetch(e) }>

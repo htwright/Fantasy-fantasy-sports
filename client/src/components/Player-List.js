@@ -6,7 +6,7 @@ const PlayerList = (props) => {
   return (
     <div>
     <table>
-        <colgroup span="8"></colgroup>
+    <tbody>
         <tr>
           <th>Player Name</th>
           <th>Team</th>
@@ -18,6 +18,7 @@ const PlayerList = (props) => {
           <th>TurnOvers/pg</th>
           <th>Add Player</th>
         </tr>
+        </tbody>
         {players}
         </table>
     </div>
