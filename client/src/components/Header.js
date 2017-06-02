@@ -42,9 +42,7 @@ class Header extends Component {
   render() {
     //this is the entire object from API--console.log('this is inside the render function', this.props.team);
     let teamRender = this.props.team.map((member, index)=> {
-      console.log('member is', member.FirstName);
-      console.log('index is', index);
-      return(<li key={index}>member#{index+1} - {member}</li>)
+      return(<li key={index}>member#{index+1} - {member.player.FirstName + ' ' +member.player.LastName}</li>)
     });
     return(
       <div>

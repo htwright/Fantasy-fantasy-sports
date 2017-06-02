@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const teamSchema = mongoose.Schema({
   owner: String,
   memberIds: {
-    guard1: String,
-    guard2: String,
-    forward1: String,
-    forward2: String,
-    center: String
+    guard1: Object,
+    guard2: Object,
+    forward1: Object,
+    forward2: Object,
+    center: Object
   }
 });
 

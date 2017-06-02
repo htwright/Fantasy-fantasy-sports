@@ -12,7 +12,7 @@ class PlayerItem extends Component {
     //This is the entire object
     //this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName));
     //This is just the fullName
-    this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName+'-'+this.props.player.player.LastName));
+    this.props.dispatch(addPlayerToTeam(this.props.player));
   }
 
   render() {
