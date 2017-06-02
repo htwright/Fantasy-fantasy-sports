@@ -44,7 +44,7 @@ class Header extends Component {
       return(<li key={index}>member#{index+1} - {member}</li>)
     });
     return(
-      <div>
+      <d>
       <h1>Welcome to Fantasy Fantasy Sports</h1>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7exq6_YVJGfo6equ6tfjitTy5SxX8OkpKadodGj86IYVsFWSW" width={200} height={200} />
             <h3>Choose a Sport</h3>
@@ -94,13 +94,14 @@ class Header extends Component {
           <button type="submit">Search</button>
 
         <ul>
-          {teamRender}
           <input className="owner-name"type="text" placeholder="Name your team" ref={(input) => this.ownerInput = input}/>
           <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>
-        <PlayerList/>
-      </div>
+        <span>  <PlayerList />   {teamRender}      </span>
+
+
+      </d>
     );
   }
 }

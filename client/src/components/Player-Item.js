@@ -9,7 +9,7 @@ class PlayerItem extends Component {
 
   addPlayer(e){
     e.preventDefault();
-    this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName+'-'+this.props.player.player.LastName));
+    this.props.dispatch(addPlayerToTeam(this.props.player.player.FirstName+' '+this.props.player.player.LastName));
   }
 
   render() {
@@ -20,7 +20,8 @@ class PlayerItem extends Component {
           {/*Render data into here*/}
           <td name={player.player.FirstName + 'name'}>{player.player.FirstName} {this.props.player.player.LastName}
           <button onClick={e=>this.addPlayer(e)} type="button">Add {player.player.FirstName + ' ' + player.player.LastName} to team!</button></td>
-          <td name={player.player.FirstName + 'position'}>{player.stats.Position}</td>
+          <td name={player.player.FirstName + 'team'}> { player.team.Name } </td>
+          <td name={player.player.FirstName + 'position'}> { player.player.Position } </td>
           <td name={player.player.FirstName + 'points-per-game'}>{player.stats.PtsPerGame['#text']}</td>
           <td name={player.player.FirstName + 'rebounds'}>{player.stats.RebPerGame['#text']}</td>
           <td name={player.player.FirstName + 'assists'}>{player.stats.AstPerGame['#text']}</td>

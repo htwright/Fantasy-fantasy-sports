@@ -7,6 +7,8 @@ const PlayerList = (props) => {
     <div>      <table>
       <tr>
         <th>Player Name</th>
+        <th>Team</th>
+        <th>Position</th>
         <th>Points/Game</th>
         <th>Rebounds/Game</th>
         <th>Assists/Game</th>
