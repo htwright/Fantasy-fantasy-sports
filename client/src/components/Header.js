@@ -99,6 +99,7 @@ class Header extends Component {
           <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>
+        <PlayerList/>
       </div>
     );
   }

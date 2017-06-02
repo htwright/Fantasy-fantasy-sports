@@ -1,15 +1,10 @@
 import React from 'react';
 import PlayerItem from './Player-Item';
 import { connect } from 'react-redux';
-import Header from './Header';
-import Search from './Search';
-
 const PlayerList = (props) => {
   const players = props.data.map((player, index) => <PlayerItem player={player} key={index} />);
   return (
-    <div>
-    <Search />
-      <table>
+    <div>      <table>
       <tr>
         <th>Player Name</th>
         <th>Points/Game</th>
