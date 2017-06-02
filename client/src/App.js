@@ -8,6 +8,8 @@ import { fetchPlayers } from '../src/actions';
 import TeamName from './components/Team-Name';
 import store from './store';
 import Owner from './components/Owner';
+import { Navbar } from 'react-bootstrap';
+import PlayerList from './components/Player-List';
 
 class App extends Component {
 
@@ -20,8 +22,10 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+
             <Route exact path="/" component={Header} />
             <Route exact path="/owner/:owner" component={Owner} />
+            <Route exaxt path="/players" component={PlayerList}/>
             <Route exact path="/teams" component={TeamList} />
           </div>
         </Router>

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router';
 import store from '../store';
 import PlayerList from './Player-List';
 import TeamList from './Team-List';
 import {pushTeamToDb, fetchPlayers, fetchTeams} from '../actions';
+import './header.css';
 //  https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017-regular
 //  /cumulative_player_stats.json?
 
@@ -43,16 +45,18 @@ class Header extends Component {
     });
     return(
       <div>
+      <h1>Welcome to Fantasy Fantasy Sports</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7exq6_YVJGfo6equ6tfjitTy5SxX8OkpKadodGj86IYVsFWSW" width={200} height={200} />
+            <h3>Choose a Sport</h3>
       <form id="search-form" onSubmit={e => this.dispatchFetch(e) }>
-        <select name="sports">
+        <select className="sports">
           {/*<option value hidden>Pick a sport</option>*/}
           <option>Basketball</option>
           {/*<option value="hockey">Hockey</option>
           <option value="baseball">Baseball</option>
           <option value="football">Football</option>*/}
         </select>
-        <span> </span>
-        <input type="text" ref={(input) => this.nameInput = input} id="name-search" placeholder="Enter a player's last name!"/>
+        <input className="search" type="text" ref={(input) => this.nameInput = input} id="name-search" placeholder="Find your player..."/>
         {/*<select name="hello" ref ={(input) => this.selectInput = input}>
           <option value hidden>Pick a team</option>
           <option value="ATL">Atlanta Hawks</option>
@@ -86,14 +90,15 @@ class Header extends Component {
           <option value="UTA">Utah Jazz</option>
           <option value="WAS">Washington Wizards</option>
         </select>*/}
-        <button type="submit">Search</button>
+
+          <button type="submit">Search</button>
+
         <ul>
           {teamRender}
-          <input type="text" placeholder="Team Owner's Name" ref={(input) => this.ownerInput = input}/>
+          <input className="owner-name"type="text" placeholder="Name your team" ref={(input) => this.ownerInput = input}/>
           <button type="button" onClick={e=>this.addToDatabase(e)}>Submit Team</button>
         </ul>
         </form>
-        <PlayerList />
       </div>
     );
   }
