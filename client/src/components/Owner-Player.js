@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {teamDataPush} from '../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { teamDataPush } from '../actions';
 // import {fetchPlayer} from '../actions';
+import './owner-player.css';
 
 class OwnerPlayer extends Component {
-
-  componentDidMount(){
+  componentDidMount() {
     let player = this.props.player;
     console.log(this.props.player);
   }
@@ -24,39 +24,66 @@ class OwnerPlayer extends Component {
   //   });
   // }
 
-
-
   render() {
     // console.log(this.props.data);
     // console.log(this.props.data.cumulativeplayerstats);
     // let player = this.props.data.cumulativeplayerstats.playerstatsentry;
     return (
-    <div>
-      <table>
-      {this.props.player ?
+      <div>
+        <table>
         <tr>
-          <td name={this.props.player.player.FirstName + 'name'}>{this.props.player.player.FirstName} {this.props.player.player.LastName}</td>
-          <td name={this.props.player.player.FirstName + 'position'}>{this.props.player.stats.Position}</td>
-          <td name={this.props.player.player.FirstName + 'points-per-game'}>{this.props.player.stats.PtsPerGame['#text']}</td>
-          <td name={this.props.player.player.FirstName + 'rebounds'}>{this.props.player.stats.RebPerGame['#text']}</td>
-          <td name={this.props.player.player.FirstName + 'steals'}>{this.props.player.stats.StlPerGame['#text']}</td>
-          <td name={this.props.player.player.FirstName + 'assists'}>{this.props.player.stats.AstPerGame['#text']}</td>
-          <td name={this.props.player.player.FirstName + 'turnovers'}>{this.props.player.stats.TovPerGame['#text']}</td>
+          <th>Player Name</th>
+          <th>Team</th>
+          <th>Position</th>
+          <th>Points/pg</th>
+          <th>Rebounds/pg</th>
+          <th>Assists/pg</th>
+          <th>Steals/pg</th>
+          <th>TurnOvers/pg</th>
         </tr>
-        :
-        ''
-      }
+          {this.props.player
+            ? <tr>
+                <td name={this.props.player.player.FirstName + 'name'}>
+                  {this.props.player.player.FirstName}
+                  {' '}
+                  {this.props.player.player.LastName}
+                </td>
+                <td name={this.props.player.player.FirstName + 'team'}>
+                  {this.props.player.team.Name}
+                </td>
+                <td name={this.props.player.player.FirstName + 'position'}>
+                  {this.props.player.player.Position}
+                </td>
 
-      </table>
-    </div>
+                <td
+                  name={this.props.player.player.FirstName + 'points-per-game'}
+                >
+                  {this.props.player.stats.PtsPerGame['#text']}
+                </td>
+                <td name={this.props.player.player.FirstName + 'rebounds'}>
+                  {this.props.player.stats.RebPerGame['#text']}
+                </td>
+                <td name={this.props.player.player.FirstName + 'steals'}>
+                  {this.props.player.stats.StlPerGame['#text']}
+                </td>
+                <td name={this.props.player.player.FirstName + 'assists'}>
+                  {this.props.player.stats.AstPerGame['#text']}
+                </td>
+                <td name={this.props.player.player.FirstName + 'turnovers'}>
+                  {this.props.player.stats.TovPerGame['#text']}
+                </td>
+              </tr>
+            : ''}
+        </table>
+      </div>
     );
   }
 }
 
-const mapStateToProps =(state, ownProps) =>{
+const mapStateToProps = (state, ownProps) => {
   // console.log(state.owner);
   return {
-    data:state.owner.teamData[ownProps.index]
+    data: state.owner.teamData[ownProps.index],
   };
 };
 
