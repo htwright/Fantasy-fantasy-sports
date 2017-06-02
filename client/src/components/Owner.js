@@ -15,7 +15,7 @@ class Owner extends Component {
 
     return (
     <div>
-      <div>Owner's Name</div>
+      <div><h1>{this.props.match.params.owner+`'s team`}</h1></div>
       {ownerTeams}
     </div>
     );
