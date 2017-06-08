@@ -1,7 +1,97 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
+@media(max-width: 780px){
+  .desktop-view{
+    display:none;
+  }
+  input, button{
+    max-width:80%;
+  }
+}
+
+@media(min-width: 781px){
+  .mobile-view{
+    display:none;
+  }
+}
+
+body{
+  background: #E71D36;
+  color:#FDFFFC;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size:18px;
+  font-weight: 400;
+
+}
+
+table{
+  background:#FDFFFC;
+}
+
+#header-div{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  padding-top:1em;
+  align-items:center;
+}
+
+#header-div a{
+  width:10em;
+  align-self:center;
+  text-decoration:none;
+  padding:1em;
+  background: #2EC4B6;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;  
+  border-radius: 8px;
+}
+
+img, .logo {
+    align-self:center;
+    background:#FDFFFC;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;  
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+
+.outer {
+      width: 200px;
+    height: 200px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;  
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+
+.center{
+  flex:2;
+}
+
+button{
+  background:#2EC4B6;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;  
+  border-radius: 8px;
+  width:100%;
+}
+input{
+  width:100%
+}
+
+tr{
+  background:#FF9F1C;
+}
+
 th, td {
-  padding: 5px;
-  margin-left: 15px;
-  border: 1px solid black;
+  flex:2;
 }
 
 ul {
@@ -9,6 +99,10 @@ ul {
 }
 
 ul, li {
-  padding: 5px;
+
   text-decoration: none;
+}
+
+.hidden{
+  display:none;
 }

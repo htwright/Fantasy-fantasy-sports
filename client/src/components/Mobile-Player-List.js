@@ -1,20 +1,15 @@
 import React from 'react';
-import PlayerItem from './Player-Item';
+import MobilePlayerItem from './Mobile-Player-Item';
 import { connect } from 'react-redux';
 const PlayerList = (props) => {
-  const players = props.data.map((player, index) => <PlayerItem player={player} key={index} />);
+  const players = props.data.map((player, index) => <MobilePlayerItem player={player} key={index} />);
   return (
-      <table className="table-striped desktop-view">
+      <table className="table-striped mobile-view">
         <tbody>
           <tr className="table-header">
             <th>Player Name</th>
-            <th>Team</th>
             <th>Position</th>
             <th>Points/pg</th>
-            <th>Rebounds/pg</th>
-            <th>Assists/pg</th>
-            <th>Steals/pg</th>
-            <th>TurnOvers/pg</th>
             <th>Add Player</th>
           </tr>
         </tbody>
@@ -28,4 +23,4 @@ const mapStateToProps = (state) => {
     data: state.players.data
   }
 }
-export default connect(mapStateToProps)(PlayerList)
+export default connect(mapStateToProps)(PlayerList);
