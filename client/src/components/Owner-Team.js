@@ -32,4 +32,13 @@ const mapStateToProps = (state) => {
     data: state.owner.data
   }
 }
+
+/*
+  TODO: When using arrow functions and you are simply returning something,
+        you could use parenthesis:
+
+        const mapStateToProps = (state) => ({
+            data: state.owner.data
+          })
+*/
 export default connect(mapStateToProps)(OwnerTeam)
