@@ -2,3 +2,6 @@ table, th, td, tr {
   padding: 5px;
   margin-left: 15px;
 }
+tr {
+  border-top:1px solid black;
+}

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import store from '../store';
 import PlayerList from './Player-List';
 import TeamList from './Team-List';
+import CurrentTeam from './CurrentTeam';
 import {pushTeamToDb, fetchPlayers, fetchTeams} from '../actions';
 import MobilePlayerList from './Mobile-Player-List.js';
 import './header.css';
@@ -80,7 +81,7 @@ class Header extends Component {
         </form>
             <PlayerList className="list" />
             <MobilePlayerList className="list" />
-            {teamRender}
+            <CurrentTeam/>
       </div>
     );
   }

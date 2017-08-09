@@ -1,7 +1,7 @@
 th, td {
   padding: 5px;
   margin-left: 15px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 ul {
@@ -15,4 +15,8 @@ ul, li {
 
 table {
   margin: auto;
+  border: 1px solid black;
+}
+tbody {
+  border-top:1px solid black;
 }

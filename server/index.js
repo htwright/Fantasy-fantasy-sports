@@ -6,13 +6,7 @@ const app = express();
 const {Team} = require('./models');
 const bodyParser = require('body-parser');
 
-// app.use(function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//   next();
-// });
 app.use(bodyParser.json());
-
 
 app.get('/api/teams', (req, res) => {
   Team
@@ -36,7 +30,7 @@ app.post('/api/teams', (req, res) => {
 app.put('/api/teams', (req, res) => {
   const toUpdate = {};
   const updateableFields = ['owner', 'memberIds'];
-
+//wasted run time VVVV
   updateableFields.forEach(field => {
     if (field in req.body) {
       toUpdate[field] = req.body[field];

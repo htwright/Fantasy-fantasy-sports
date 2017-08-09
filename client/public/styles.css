@@ -16,8 +16,8 @@
 }
 
 body{
-  background: #E71D36;
-  color:#FDFFFC;
+  background-color: #F8F8F8;
+  color: #1E2835;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size:18px;
   font-weight: 400;
@@ -25,7 +25,8 @@ body{
 }
 
 table{
-  background:#FDFFFC;
+  background:#F8F8F8;
+;
 }
 
 #header-div{
@@ -81,13 +82,15 @@ button{
   -khtml-border-radius: 8px;  
   border-radius: 8px;
   width:100%;
+  margin-top:1em;
+  padding:0.5em;
 }
 input{
   width:100%
 }
 
 tr{
-  background:#FF9F1C;
+  /* background:#FF9F1C; */
 }
 
 th, td {
@@ -105,4 +108,19 @@ ul, li {
 
 .hidden{
   display:none;
+}
+/* 
+.current-team li{
+
+} */
+
+.current-team{
+  width:12em;
+  position: fixed;
+  top:0px;
+  left:0px;
+
+   /* margin:-335px 0 0 410px;  */
+  color: red;
+  border:1px solid black;
 }
