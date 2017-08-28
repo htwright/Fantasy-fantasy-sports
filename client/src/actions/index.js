@@ -4,6 +4,11 @@ const recieveTeams = (data) => ({
   data
 });
 
+/*
+  TODO: Why are you using back quotes ``. It doesn't make sense
+        to use them unless you inser variables in the string.
+*/
+
 const REQUEST_TEAMS = `REQUEST_TEAMS`;
 const requestTeams = () => ({
   type: REQUEST_TEAMS
@@ -65,6 +70,13 @@ export const teamDataPush = (data) => ({
   data
 });
 
+
+/*
+  TODO: Use a different file to insert users, passwords, API keys, etc...
+        Then you can add that file in the gitignore and your credentials
+        will be safe.
+*/
+
 //USED for validation
 const username = `baamosk`;
 const password = `Jajuka888`;
@@ -106,7 +118,9 @@ export const fetchTeams = () => {
       .catch(err => console.error(err));
   };
 };
-
+/*
+  TODO: Do not leave commented code. If you don't need this remove it.
+*/
 
 export const pushTeamToDb = (teamObj) => {
   const url = `/api/teams`;

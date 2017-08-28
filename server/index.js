@@ -75,6 +75,7 @@ function runServer(port=3001) {
       if (err) {
         return reject(err);
       }
+      console.log({port});
       server = app.listen(port, () => {
         console.log(`Your app is listening on port ${port}`);
         resolve();

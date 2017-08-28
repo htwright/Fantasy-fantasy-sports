@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect, Provider } from 'react-redux';
-import Header from './components/Header';
-import TeamList from './components/Team-List';
+
 import './App.css';
+
 import { fetchPlayers } from '../src/actions';
-import TeamName from './components/Team-Name';
 import store from './store';
-import Owner from './components/Owner';
-import { Navbar } from 'react-bootstrap';
-import PlayerList from './components/Player-List';
-import OwnerList from './components/Owner-List';
+import {
+  TeamName,
+  Header,
+  PlayerList,
+  OwnerList,
+  TeamList,
+  Owner
+} from './components'
 
 class App extends Component {
 
@@ -23,7 +26,6 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-
             <Route exact path="/" component={Header} />
             <Route exact path="/teams" component={OwnerList} />
             <Route exact path="/teams/:owner" component={Owner} />
@@ -41,3 +43,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(App);
+
+// TODO: Use decorators
